@@ -1,4 +1,4 @@
-import { PERSONA } from '../../src/lib/persona';
+import { PERSONA } from './persona.js';
 
 const PERSONA_JSON = JSON.stringify(PERSONA, null, 2);
 
