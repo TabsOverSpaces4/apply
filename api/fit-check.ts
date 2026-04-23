@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { callClaudeJson } from './_lib/claude';
-import { FIT_CHECK_SYSTEM, buildFitCheckUser } from './_lib/prompts';
+import { callClaudeJson } from './_lib/claude.js';
+import { FIT_CHECK_SYSTEM, buildFitCheckUser } from './_lib/prompts.js';
 
 interface FitCheckResult {
   title: string;

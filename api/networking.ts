@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { callClaudeJson } from './_lib/claude';
-import { NETWORKING_SYSTEM, buildNetworkingUser } from './_lib/prompts';
+import { callClaudeJson } from './_lib/claude.js';
+import { NETWORKING_SYSTEM, buildNetworkingUser } from './_lib/prompts.js';
 
 interface NetworkingTarget {
   persona: string;

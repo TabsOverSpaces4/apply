@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { scrapeJobUrl } from './_lib/scrapers';
+import { scrapeJobUrl } from './_lib/scrapers.js';
 
 export default async function handler(
   req: VercelRequest,

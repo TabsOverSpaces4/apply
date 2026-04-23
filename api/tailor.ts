@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { callClaudeJson } from './_lib/claude';
-import { TAILOR_SYSTEM, buildTailorUser } from './_lib/prompts';
+import { callClaudeJson } from './_lib/claude.js';
+import { TAILOR_SYSTEM, buildTailorUser } from './_lib/prompts.js';
 
 interface StudyItem {
   skill: string;
