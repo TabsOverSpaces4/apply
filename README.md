@@ -136,7 +136,7 @@ The `api/*.ts` files become Vercel serverless functions automatically. The front
 **Key files**
 - `src/lib/useApplyFlow.ts` — the state machine that drives the pipeline
 - `src/lib/store.ts` — zustand store holding `stage` + all cached results
-- `src/lib/persona.ts` — the hardcoded candidate persona injected into every Claude call
+- `api/_lib/persona.ts` — the hardcoded candidate persona injected into every Claude call (kept inside `api/` so Vercel bundles it with the serverless functions)
 - `api/_lib/prompts.ts` — the three Claude system prompts (fit, tailor, networking)
 - `api/_lib/claude.ts` — shared Anthropic client + robust JSON extraction
 - `api/_lib/scrapers.ts` — Jina-first with Firecrawl fallback
@@ -151,7 +151,7 @@ The `api/*.ts` files become Vercel serverless functions automatically. The front
 
 ## Customizing the persona
 
-This is a personal tool. The candidate persona is hardcoded in [`src/lib/persona.ts`](src/lib/persona.ts) — name, contact, education, skills, experience bullets, projects, research, differentiators. Every Claude prompt serializes this object and stamps it into the system message. To make this yours, replace the persona object and the prompts automatically pick it up.
+This is a personal tool. The candidate persona is hardcoded in [`api/_lib/persona.ts`](api/_lib/persona.ts) — name, contact, education, skills, experience bullets, projects, research, differentiators. Every Claude prompt serializes this object and stamps it into the system message. To make this yours, replace the persona object and the prompts automatically pick it up.
 
 Claude is instructed **never to invent experience** — only to reweight, rephrase, and reorder what's in the persona. Metrics and outcomes that aren't in the persona won't show up in the tailored resume.
 
