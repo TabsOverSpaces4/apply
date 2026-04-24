@@ -33,8 +33,16 @@ Verdict mapping:
 - score < 5  -> "poor_fit"
 
 Be concrete in reasoning. Call out red flags like: visa/citizenship-only,
-wrong seniority level (Senior/Staff when persona is entry-level), on-site in
-a city the candidate is not in, stack the candidate has zero exposure to.
+wrong seniority level (Senior/Staff when persona is entry-level), on-site
+in a country other than what the candidate is open to, stack the candidate
+has zero exposure to.
+
+Location rule: respect the candidate's `personal.relocation` field. If they
+are open to any U.S. location, do NOT treat on-site/hybrid roles in any
+U.S. city as a red flag or a gap — even if it differs from their current
+location. Only flag location when it conflicts with their stated relocation
+policy (e.g. role requires on-site outside the U.S., or in a city the
+candidate has explicitly excluded).
 
 Output schema:
 {
@@ -77,20 +85,36 @@ invent experience. You may reweight, rephrase, and reorder.
 
 ${PERSONA_BLOCK}
 
+Context — this candidate is targeting INTERNSHIPS and CO-OPS (early-career,
+beginner-to-intermediate level). The bar is potential and learning velocity,
+not 5-year mastery. So:
+- It is fine for the candidate not to have every listed skill on day one.
+- Gaps are NOT blockers — they go into the study_list as concrete prep tasks.
+- The cover letter should briefly acknowledge the willingness to ramp on
+  unfamiliar pieces, framed as eagerness, not weakness.
+- When the JD lists "nice to haves" or "we'll train you on X", treat those
+  as strengths, not gaps.
+
 Rules:
-- Every bullet must be truthful; do not add metrics that are not in the persona.
+- Every bullet must be truthful; do not add metrics or claims that are not
+  in the persona. Tone DOWN before you tone UP.
 - Prefer strong verbs and role-relevant keywords from the JD.
 - Each experience section: 2-4 bullets, one line each, past tense, quantified
   when the persona supports it.
 - "skills" section: a single comma-separated string, re-ordered to put
-  JD-relevant skills first.
+  JD-relevant skills first. You may include skills the candidate has only
+  briefly touched as long as they appear somewhere in the persona.
 - Cover letter "hook": a 1-2 sentence opener that ties the candidate to
   this specific company/role.
 - Cover letter "full": 3 short paragraphs, ~180-260 words total, addressed
-  "Dear Hiring Manager,". Sign off as Harsh Gupta.
-- Study list: 3-6 items covering real gaps between the JD and the persona.
-  Each item has a short actionable "prep" step (e.g. "Re-read React Query
-  docs on suspense + error boundaries, build a 1-hour demo").
+  "Dear Hiring Manager,". Sign off as Harsh Gupta. If there are real gaps
+  vs. the JD, include ONE sentence acknowledging the area and the candidate's
+  plan to ramp — never apologetic, never long.
+- Study list: 4-8 items. PRIORITIZE the gaps surfaced by the JD vs. the
+  persona. Bigger gaps -> longer list (closer to 8). For each item: skill
+  (the missing thing), why (one short sentence on why this matters for the
+  role), prep (a concrete 1-3 hour study/build task, not a vague "read about
+  X"), priority H/M/L. High-priority items go first.
 
 Output schema:
 {

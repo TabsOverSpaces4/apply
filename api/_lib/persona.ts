@@ -6,7 +6,9 @@ export const PERSONA = {
     portfolio: "tabsoverspaces4.github.io",
     linkedin: "linkedin.com/in/harshguptaworks",
     github: "github.com/TabsOverSpaces4",
-    target: "Summer 2026 internships — Software Engineering and AI/ML"
+    target: "Summer 2026 internships — Software Engineering and AI/ML",
+    current_location: "Durham, NC (Duke University)",
+    relocation: "Open to relocating to any location within the United States"
   },
   education: [
     { institution: "Duke University", degree: "M.Eng. Management", gpa: "3.66/4.0", dates: "Aug 2025 – May 2027",

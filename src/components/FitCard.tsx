@@ -238,11 +238,23 @@ export function FitCard({ data }: FitCardProps) {
         )}
       </Card>
 
+      {isPoorFit && (
+        <motion.p
+          variants={item}
+          className="text-xs text-ink-500 text-center max-w-md mx-auto leading-relaxed -mt-2"
+        >
+          Targeting an internship or co-op? You can still tailor — gaps will
+          be added to your study plan.
+        </motion.p>
+      )}
+
       <motion.div variants={item}>
         <StepNav
           onBack={() => goBack()}
-          onContinue={() => (isPoorFit ? reset() : setStage('tailoring'))}
-          continueLabel={isPoorFit ? 'Start over' : 'Tailor resume'}
+          onContinue={() => setStage('tailoring')}
+          continueLabel={isPoorFit ? 'Tailor anyway' : 'Tailor resume'}
+          onSecondary={isPoorFit ? () => reset() : undefined}
+          secondaryLabel={isPoorFit ? 'Start over' : undefined}
         />
       </motion.div>
     </motion.div>
